@@ -32,10 +32,10 @@
          {
          die("connection failed: ".mysqli_connect_error());
          }
-         $sql = "SELECT COUNT(*) FROM projects where pname='$file_name'";  
+         $sql = "SELECT * FROM projects where pname='$file_name'";  
          $retval=mysqli_query($conn, $sql);  
            
-         if(mysqli_num_rows($retval) > 1){ 
+         if($retval->num_rows >0){ 
          echo "File already exists!"; 
    }
          else{
